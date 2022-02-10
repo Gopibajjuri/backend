@@ -1,7 +1,8 @@
 package com.kodem.Linkedin.service;
 
-import com.kodem.Linkedin.model.Profile;
-import com.kodem.Linkedin.repository.ProfileRepository;
+import com.kodem.Linkedin.model.users;
+import com.kodem.Linkedin.repository.UserRepository;
+import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +11,21 @@ import java.util.Optional;
 @Service
 public class ProfileService {
     @Autowired
-    ProfileRepository pr;
+    private UserRepository ur;
 
-    public Profile findprofile(int user_id) {
-        return pr.findById(user_id);
+    public Optional<users> findProfile(int id) {
+        return ur.findById(id);
     }
+
+    public users createUser(users user){
+        return ur.save(user);
+    }
+
+
+    public users checkCredentials(String username, String password) {
+        return ur.findByUsernameAndPassword(username,password);
+    }
+
+
 
 }

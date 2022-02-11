@@ -14,16 +14,23 @@ import java.util.Optional;
 @RestController
 public class ProfileController {
     @Autowired
-    ProfileService ps;
+    ProfileService profileService;
 
-    @PostMapping("/profileDetails")
-    public users find(@RequestBody UserProfile u) {
+    @PostMapping("/profile/find")
+    public users findProfile(@RequestBody UserProfile u) {
         int i=u.user_id;
-        Optional<users> user=ps.findProfile(i);
+        Optional<users> user=profileService.findProfile(i);
         return user.get();
+    }
 
+    @PostMapping("/profile/send")
+    public users saveUser(@RequestBody users user){
+        return profileService.saveUser(user);
+    }
 
-
+    @PostMapping("/profile/delete")
+    public void deleteUser(@RequestBody users user){
+        profileService.deleteUser(user);
     }
 
 

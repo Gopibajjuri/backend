@@ -14,7 +14,7 @@ public class RegisterController {
 
     @PostMapping("/register")
     public users addUser(@RequestBody users u) {
-        return ps.createUser(u);
+        return ps.saveUser(u);
     }
 
 

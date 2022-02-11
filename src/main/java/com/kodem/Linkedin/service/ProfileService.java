@@ -17,7 +17,7 @@ public class ProfileService {
         return ur.findById(id);
     }
 
-    public users createUser(users user){
+    public users saveUser(users user){
         return ur.save(user);
     }
 
@@ -26,6 +26,8 @@ public class ProfileService {
         return ur.findByUsernameAndPassword(username,password);
     }
 
-
+    public void deleteUser(users user){
+        ur.delete(user);
+    }
 
 }

@@ -22,14 +22,18 @@ public class EducationController {
         return educationService.findEducations(user.getUsername());
     }
 
-    @PostMapping("education/send")
+    @PostMapping("/education/send")
     public Education saveEducation(@RequestBody Education education){
         return educationService.saveEducation(education);
     }
 
-    @PostMapping("education/delete")
+    @PostMapping("/education/delete")
     public void deleteEducation(@RequestBody Education education){
         educationService.deleteEducation(education);
     }
 
+    @PostMapping("/education/update")
+    public Education updateEducation(@RequestBody Education education) {
+        return educationService.updateEduacation(education);
+    }
 }

@@ -18,16 +18,19 @@ public class ExperienceController {
     public Experience[] findExperience(@RequestBody users user){
         return experienceService.findExperience(user.getUsername());
     }
-
-    @PostMapping("experience/send")
+    @PostMapping("/experience/send")
     public Experience saveExperience(@RequestBody Experience experience){
         return experienceService.saveEducation(experience);
     }
 
-    @PostMapping("experience/delete")
+    @PostMapping("/experience/delete")
     public void deleteExperience(@RequestBody Experience education){
         experienceService.deleteEducation(education);
     }
 
+    @PostMapping("/experience/update")
+    public Experience updateExperience(@RequestBody Experience experience){
+        return experienceService.updateEducation(experience);
+    }
 }
 

@@ -16,18 +16,16 @@ public class ProfileService {
     public Optional<users> findProfile(int id) {
         return ur.findById(id);
     }
-
     public users saveUser(users user){
         return ur.save(user);
     }
-
-
     public users checkCredentials(String username, String password) {
         return ur.findByUsernameAndPassword(username,password);
     }
-
     public void deleteUser(users user){
         ur.delete(user);
     }
-
+    public users updateUser(users user){
+        return ur.save(user);
+    }
 }

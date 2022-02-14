@@ -27,6 +27,10 @@ public class SkillController {
         skillService.deleteSkills(skill);
     }
 
+    @PostMapping("skill/update")
+    public Skill updateSkills(@RequestBody Skill skill){
+        return skillService.updateSkills(skill);
+    }
 }
 
 

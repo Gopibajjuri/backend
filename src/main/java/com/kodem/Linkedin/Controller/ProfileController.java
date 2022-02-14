@@ -22,7 +22,6 @@ public class ProfileController {
         Optional<users> user=profileService.findProfile(i);
         return user.get();
     }
-
     @PostMapping("/profile/send")
     public users saveUser(@RequestBody users user){
         return profileService.saveUser(user);
@@ -31,6 +30,12 @@ public class ProfileController {
     @PostMapping("/profile/delete")
     public void deleteUser(@RequestBody users user){
         profileService.deleteUser(user);
+    }
+
+    @PostMapping("/profile/update")
+    public users updateUser(@RequestBody users user){
+        System.out.println(user);
+        return profileService.updateUser(user);
     }
 
 

@@ -9,6 +9,8 @@ import com.kodem.Linkedin.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ExperienceService {
     @Autowired
@@ -18,7 +20,6 @@ public class ExperienceService {
 
     public Experience[] findExperience(String username){
         users user=userRepository.findByUsername(username);
-        System.out.println(user);
         return experienceRepository.findAllByUser(user);
     }
     public Experience saveEducation(Experience experience){
@@ -26,5 +27,8 @@ public class ExperienceService {
     }
     public void deleteEducation(Experience experience){
         experienceRepository.delete(experience);
+    }
+    public Experience updateEducation(Experience experience) {
+        return experienceRepository.save(experience);
     }
 }

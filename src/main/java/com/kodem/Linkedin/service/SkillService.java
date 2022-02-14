@@ -7,6 +7,8 @@ import com.kodem.Linkedin.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class SkillService {
     @Autowired
@@ -16,7 +18,6 @@ public class SkillService {
 
     public Skill[] findSkills(String username){
         users user=userRepository.findByUsername(username);
-        System.out.println(user);
         return skillRepository.findAllByUser(user);
     }
     public Skill saveSkills(Skill skills){
@@ -24,5 +25,9 @@ public class SkillService {
     }
     public void deleteSkills(Skill skill){
         skillRepository.delete(skill);
+    }
+
+    public Skill updateSkills(Skill skill) {
+        return skillRepository.save(skill);
     }
 }

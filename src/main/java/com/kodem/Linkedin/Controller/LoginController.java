@@ -8,12 +8,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class LoginController {
     @Autowired
-    ProfileService ps;
-
+    ProfileService profileService;
     @PostMapping("/check")
     public users checkDetails(@RequestBody users user){
-        users u=ps.checkCredentials(user.getUsername(), user.getPassword());
-        return u;
+        return profileService.checkCredentials(user.getUsername(), user.getPassword());
     }
 
 }

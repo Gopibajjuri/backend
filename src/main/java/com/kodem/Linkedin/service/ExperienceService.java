@@ -18,17 +18,17 @@ public class ExperienceService {
     @Autowired
     UserRepository userRepository;
 
-    public Experience[] findExperience(String username){
+    public Experience[] findExperiences(String username){
         users user=userRepository.findByUsername(username);
         return experienceRepository.findAllByUser(user);
     }
-    public Experience saveEducation(Experience experience){
+    public Experience saveExperience(Experience experience){
         return experienceRepository.save(experience);
     }
-    public void deleteEducation(Experience experience){
+    public void deleteExperience(Experience experience){
         experienceRepository.delete(experience);
     }
-    public Experience updateEducation(Experience experience) {
+    public Experience updateExperience(Experience experience) {
         return experienceRepository.save(experience);
     }
 }

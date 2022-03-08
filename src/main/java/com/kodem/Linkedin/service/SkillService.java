@@ -20,14 +20,14 @@ public class SkillService {
         users user=userRepository.findByUsername(username);
         return skillRepository.findAllByUser(user);
     }
-    public Skill saveSkills(Skill skills){
+    public Skill saveSkill(Skill skills){
         return skillRepository.save(skills);
     }
-    public void deleteSkills(Skill skill){
+    public void deleteSkill(Skill skill){
         skillRepository.delete(skill);
     }
 
-    public Skill updateSkills(Skill skill) {
+    public Skill updateSkill(Skill skill) {
         return skillRepository.save(skill);
     }
 }

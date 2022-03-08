@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RegisterController {
     @Autowired
-    ProfileService ps;
+    ProfileService profileService;
 
     @PostMapping("/register")
-    public users addUser(@RequestBody users u) {
-        return ps.saveUser(u);
+    public users addUser(@RequestBody users user) {
+        return profileService.saveUser(user);
     }
-
-
 }

@@ -21,12 +21,10 @@ public class EducationController {
     public Education[] findEducations(@RequestBody users user){
         return educationService.findEducations(user.getUsername());
     }
-
     @PostMapping("/education/send")
     public Education saveEducation(@RequestBody Education education){
         return educationService.saveEducation(education);
     }
-
     @PostMapping("/education/delete")
     public void deleteEducation(@RequestBody Education education){
         educationService.deleteEducation(education);

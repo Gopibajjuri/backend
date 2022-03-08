@@ -18,18 +18,18 @@ public class SkillController {
     }
 
     @PostMapping("skill/send")
-    public Skill saveSkills(@RequestBody Skill skill){
-        return skillService.saveSkills(skill);
+    public Skill saveSkill(@RequestBody Skill skill){
+        return skillService.saveSkill(skill);
     }
 
     @PostMapping("skill/delete")
-    public void deleteExperience(@RequestBody Skill skill){
-        skillService.deleteSkills(skill);
+    public void deleteSkill(@RequestBody Skill skill){
+        skillService.deleteSkill(skill);
     }
 
     @PostMapping("skill/update")
-    public Skill updateSkills(@RequestBody Skill skill){
-        return skillService.updateSkills(skill);
+    public Skill updateSkill(@RequestBody Skill skill){
+        return skillService.updateSkill(skill);
     }
 }
 
